@@ -1,0 +1,119 @@
+body{padding-top:50px; font-family:Georgia, serif}
+
+.text-lg{font-size:1.6em}
+.text-lg .icon,.text-lg.icon,
+.text-lg .social,.text-lg.social,
+.text-lg .glyphicons,.text-lg.glyphicons,
+.text-lg .halflings,.text-lg.halflings{vertical-align:text-top}
+
+.fancy{font-family:'freebooter_scriptregular',cursive}
+.fancy-lg{font-size:3em}
+
+.slab,.btn{font-family:'museoslab500', serif}
+.slab-lg{font-size:3em}
+
+.footer{margin-top:1em; padding-top:3em; padding-bottom:3em}
+.footer-inverse{color:#bbb; background:#555; border-top:1px solid #333}
+.jumbotron{margin-bottom:0}
+.box-better-box{font-size:1.5em; color:#000; padding:60px; z-index:1029; position:relative}
+
+.box-better-box:before{content:"."; position:absolute; top:0; left:0; width:100%; height:100%; z-index:-2; background-color:#fff; border:1px solid #ccc; box-shadow:0 1px 3px 0 rgba(0,0,0,.33); transform: rotate(3deg); -webkit-transform: rotate(3deg); font-size:1px; color:transparent}
+
+.box-better-box h2:before{content:"."; position:absolute; top:0; left:0; width:100%; height:100%; z-index:-3; background-color:#fff; border:1px solid #ccc; box-shadow:0 1px 3px 0 rgba(0,0,0,.33); transform: rotate(-1deg); -webkit-transform: rotate(-1deg); font-size:1px; color:transparent}
+
+.box-better-box:after{content:"."; position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; background-color:#fff; border:1px solid #ccc; box-shadow:0 1px 3px 0 rgba(0,0,0,.33)}
+
+.box-box{background-color:#f8f8f8; padding:30px; margin-top:30px; border:1px solid #ddd}
+.margin-top{margin-top:4em}
+.neg-margin-top{margin-top:-8em}
+
+.free-shipping-tag{position:fixed; top:50px; right:50px; z-index:999999}
+
+.navbar-default{background-color:#fff}
+
+.max-height-512{max-height:512px}
+
+.img-placeholder{background:#d6d6d6 url("../img/fic-add.png") no-repeat center center}
+.placeholder{opacity:.5}
+.placeholder:hover{opacity:.8}
+.popover.p-static{display:block; max-width:98%; width:100%; margin:-15px 1% 0}
+
+.bg-blue-lighter{background-color:#DEECF3}
+.bg-blue-light  {background-color:#AFCDDC}
+
+.bg-blue        {background-color:#7DA7BC}
+
+.bg-blue-dark   {background-color:#51839A}
+.bg-blue-darker {background-color:#326781}
+
+.text-blue-lighter{color:#DEECF3}
+.text-blue-light  {color:#AFCDDC}
+
+.text-blue        {color:#7DA7BC}
+
+.text-blue-dark   {color:#51839A}
+.text-blue-darker {color:#326781}
+
+.bg-blue-lighter .page-header{border-color:#AFCDDC}
+
+.btn-blue{background-color:#51839A; border-color:#51839A; color:#DEECF3; text-shadow:none !important}
+.btn-blue:hover{background-color:#326781; border-color:#326781; color:#DEECF3; text-shadow:none !important}
+
+.navbar-inverse.bg-blue-dark{border-bottom:none}
+
+.navbar-inverse.bg-blue-dark .navbar-brand,
+.navbar-inverse.bg-blue-dark .nav.navbar-nav a,
+.navbar-inverse.bg-blue-dark .nav.navbar-nav > li > a,
+.navbar-inverse.bg-blue-dark .nav.navbar-nav .navbar-text{margin:0; padding:0 .5em; line-height:50px; color:#DEECF3}
+
+.navbar-inverse.bg-blue-dark .navbar-brand:hover,
+.navbar-inverse.bg-blue-dark .nav.navbar-nav a:hover,
+.navbar-inverse.bg-blue-dark .nav.navbar-nav > li > a:hover{text-decoration:none; color:#fff; background-color:#7DA7BC}
+
+.nav.navbar-nav .social,
+.nav.navbar-nav .halflings,
+.nav.navbar-nav .glyphicons,
+.nav.navbar-nav .icon{vertical-align:text-top;}
+
+.white-bg{background-color:#fff}
+.padding-xl{padding-top:10em; padding-bottom:10em; border-bottom:1px solid #AFCDDC; border-top:1px solid #7DA7BC}
+
+.cd-top {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin:2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  /* image replacement properties */
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background: rgba(50, 103, 129, 0.8) url(../img/cd-top-arrow.svg) no-repeat center 50%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+  -moz-transition: opacity .3s 0s, visibility 0s .3s;
+  transition: opacity .3s 0s, visibility 0s .3s;
+  z-index:999999;
+}
+.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+  -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+  -moz-transition: opacity .3s 0s, visibility 0s 0s;
+  transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+  /* the button becomes visible */
+  visibility: visible;
+  opacity: 1;
+}
+.cd-top.cd-fade-out {
+  /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+  opacity: .5;
+}
+.no-touch .cd-top:hover {
+  background-color: #51839A;
+  opacity: 1;
+}
