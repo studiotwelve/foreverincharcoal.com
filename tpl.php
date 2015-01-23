@@ -74,6 +74,12 @@
 <script src="/js/core.js"></script>
 
 <script>
+  $(function(){
+    
+  });
+</script>
+
+<script>
 $(function(){
   $('#share').share({
     networks: ['twitter','facebook','googleplus','linkedin','stumbleupon'],
