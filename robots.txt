@@ -1,3 +1,29 @@
 # robotstxt.org/
 
 User-agent: *
+# Files
+Disallow: /README.md
+
+# Testing purposes only
+Disallow: /index.html
+
+# Directories
+Disallow: /.git/
+Disallow: /cache/
+Disallow: /conf/
+Disallow: /css/
+Disallow: /doc/
+Disallow: /files/
+Disallow: /fonts/
+Disallow: /img/
+Disallow: /inc/
+Disallow: /js/
+Disallow: /less/
+Disallow: /lib/
+Disallow: /static/
+
+# Paths
+Disallow: /install/
+Disallow: /admin/
+Disallow: /update/
+Disallow: /payment/

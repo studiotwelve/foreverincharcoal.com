@@ -99,8 +99,8 @@ $hostname = "localhost";
 $username = "framr";
 $password = "494465Dl?";
 $database = "framr";
-$port = null;
-$socket = null;
+$port = 3306;
+$socket = "/var/run/mysqld/mysqld.sock";
 
 $db = new mysqli($hostname, $username, $password, $database, $port, $socket);
 
