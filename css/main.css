@@ -59,6 +59,10 @@ body{padding-top:50px; font-family:Georgia, serif}
 .btn-blue{background-color:#51839A; border-color:#51839A; color:#DEECF3; text-shadow:none !important}
 .btn-blue:hover{background-color:#326781; border-color:#326781; color:#DEECF3; text-shadow:none !important}
 
+.btn-black{background-color:#333; border-color:#000; color:#ddd; text-shadow:none !important}
+.btn-black:hover{background-color:#555; border-color:#222; color:#fff; text-shadow:none !important}
+.btn-black:active{background-color:#444; border-color:#111; color:#eee; text-shadow:none !important}
+
 .navbar-inverse.bg-blue-dark{border-bottom:none}
 
 .navbar-inverse.bg-blue-dark .navbar-brand,

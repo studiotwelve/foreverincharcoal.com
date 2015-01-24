@@ -6,12 +6,12 @@
 <input type="hidden" name="hosted_button_id" value="<?php print $hosted_button_id; ?>">
 
 <input type="hidden" name="on0" value="Order ID">
-<input type="hidden" name="os0" class="paypal-on1" maxlength="200">
+<input type="hidden" name="os0" value="<?php print uniqid(); ?>" class="paypal-on1" maxlength="200">
 
 <input type="hidden" name="on1" value="File Path">
-<input type="hidden" name="os1" class="paypal=os1" maxlength="200">
+<input type="hidden" name="os1" value="files/uploaded/img" class="paypal-os1" maxlength="200">
 
-<input type="submit" name="submit" title="Checkout with PayPal." value="Buy Now!" class="btn btn-success btn-lg">
+<input type="submit" name="submit" title="Checkout with PayPal." value="Buy Now!" class="btn btn-success btn-lg btn-block">
 
 <p class="text-left"><em>*Billing and shipping information with be collected during PayPal checkout.</em></p>
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
