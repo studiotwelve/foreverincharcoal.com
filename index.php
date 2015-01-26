@@ -95,14 +95,8 @@ function is_front(){
   return $q;
 }
 
-$hostname = "localhost";
-$username = "framr";
-$password = "494465Dl?";
-$database = "framr";
-$port = 3306;
-$socket = "/var/run/mysqld/mysqld.sock";
-
-$db = new mysqli($hostname, $username, $password, $database, $port, $socket);
+include("conf/foreverincharcoal.com.php");
+$db = new mysqli($host, $username, $passwd, $dbname, $port, $socket);
 
 if($db->connect_error){
   $db_connect_error = "Database Connection Error (".$db->connect_error_no.") ".$db->connect_error;
@@ -110,44 +104,7 @@ if($db->connect_error){
   error_log($db_connect_error, 3, ROOT."framr.error.log");
 }
 
-function default_page(){
-  extract($GLOBALS["vars"]["site"], EXTR_PREFIX_ALL, "site_");
-  
-  return array(
-      "path" => "default",
-      "head_title" => $GLOBALS["vars"]["site"]["head_title"],
-      "content" => parse("static/default.php"),
-  );
-}
-
-function payment_page(){
-  extract($GLOBALS["vars"]["site"], EXTR_PREFIX_ALL, "site_");
-  
-  $GLOBALS["vars"]["page"]["payment"] = array(
-    "head_title" => "Payment: $site_head_title",
-    "page_callback" => "payment_page_content",
-  );
-}
-
-function payment_successful_page(){
-  extract($GLOBALS["vars"]["site"], EXTR_PREFIX_ALL, "site_");
-  
-  $GLOBALS["vars"]["page"]["payment/received"] = array(
-    "head_title" => "Payment Received: $site_head_title",
-    "page_title" => "Payment Received",
-    "page_callback" => "payment_successful_page_content",
-  );
-}
-
-function payment_cancelled_page(){
-  extract($GLOBALS["vars"]["site"], EXTR_PREFIX_ALL, "site_");
-  
-  $GLOBALS["vars"]["page"]["payment/cancelled"] = array(
-    "head_title" => "Payment Cancelled: $site_head_title",
-    "page_title" => "Payment Cancelled",
-    "page_callback" => "payment_cancelled_page_content",
-  );
-}
+//do some db stuff here
 
 $db->close();
 

@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div id="content" class="container-fluid text-center white-bg padding-xl">
+<div id="content" class="container-fluid big-marketing-block">
     <div class="row">
       <div id="purchase-today" class="col-md-12 text-lg">
         <h2 class="slab slab-lg">Purchase Today,</h2>

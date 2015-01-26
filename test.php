@@ -1,15 +1,10 @@
 <!doctype html><!--[if lt IE 7]><html lang="us" class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"><![endif]--><!--[if lt IE 8]><html lang="us" class="no-js lt-ie10 lt-ie9 lt-ie8"><![endif]--><!--[if lt IE 9]><html lang="us" class="no-js lt-ie10 lt-ie9"><![endif]--><!--[if lt IE 10]><html lang="us" class="no-js lt-ie10"><![endif]--><!--[if gte IE 10]><!--><html lang="us" class="no-js"><!--<![endif]-->
-<?php print "<!-- Execution time: ".$execution_time." -->"; ?>
 <head>
 
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,width=device-width,minimal-ui"><meta name="HandheldFriendly" content="True"><meta name="MobileOptimized" content="320">
 
-<title><?php print $head_title; ?></title>
-<meta name="description" content="Custom, handmade, fine art, charcoal portraits, or your child, baby, newborn, infant and more, by Adrienne Mollette.">
-
-<link rel="publisher" href="https://twitter.com/4evercharcoal">
-<link rel="publisher" href="https://facebook.com/FICchildmemories">
-<link rel="publisher" href="https://plus.google.com/113290018799292395530">
+<title>Testing</title>
+<meta name="robots" content="noindex, nofollow">
 
 <link rel="stylesheet" href="/css/bootstrap.css">
 <link rel="stylesheet" href="/css/glyphicons.css">
@@ -46,23 +41,34 @@
       <ul class="nav navbar-nav navbar-left">
         <li><a href="/#portfolio">Portfolio</a></li>
       </ul>
-      
+
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/#content" title="Get your Forever in Charcoal, Fine Art Charcoal Portait Today"><em>Purchase Today!</em></a></li>
-        
+
         <li><a href="//plus.google.com/113290018799292395530" title="Google+: Adrienne Mollette - Forever In Charcoal" rel="publisher"><span class="social social-google-plus"></span> <span class="visible-xs-inline-block">Google+</span></a></li>
-        
+
         <li><a href="//twitter.com/4evercharcoal" title="Twitter: Adrienne Mollette - Forever In Charcoal" rel="publisher"><span class="social social-twitter"></span> <span class="visible-xs-inline-block">Twitter</span></a></li>
-        
+
         <li><a href="//facebook.com/FICchildmemories" title="Facebook: Adrienne Mollette - Forever In Charcoal" rel="publisher"><span class="social social-facebook"></span> <span class="visible-xs-inline-block">Facebook</span></a></li>
-        
-        <li><a href="tel://1-828-226-2697"><span class="halflings halflings-phone"></span> <span class="visible-xs-inline-block">Call: +1 (828) 226-2697</span></a></li>
+
+        <li><a href="tel://1-828-944-0203"><span class="halflings halflings-phone"></span> <span class="visible-xs-inline-block">Call: +1 (828) 944-0203</span></a></li>
       </ul>
     </div><!--navbar-collapse-->
   </div><!--container-fluid-->
 </nav><!--navbar-->
 
-<?php print $content; ?>
+<!--content-->
+<div class="container">
+<?php
+include(dirname(__FILE__)."/static/payment-form.php");
+
+if($_POST && is_array($_POST)){
+  foreach($_POST as $k => $v){
+    print "<div class=\"result-row\">$k = $v</div>";
+  }
+}
+?>
+</div>
 
 <div id="bottom" class="footer bg-blue-darker text-blue-light container-fluid">
   <p>&copy; Forever In Charcoal 2015</p>
@@ -89,7 +95,7 @@
 
 <script>
   $(function(){
-    
+
   });
 </script>
 
@@ -102,7 +108,7 @@ $(function(){
     affix: 'right center',
     theme: 'square',
   });
-  
+
 	// browser window scroll (in pixels) after which the "back to top" link is shown
 	var offset = 100,
 		//browser window scroll (in pixels) after which the "back to top" link opacity is reduced
@@ -115,7 +121,7 @@ $(function(){
 	//hide or show the "back to top" link
 	$(window).scroll(function(){
 		( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
-		if( $(this).scrollTop() > offset_opacity ) { 
+		if( $(this).scrollTop() > offset_opacity ) {
 			$back_to_top.addClass('cd-fade-out');
 		}
 	});

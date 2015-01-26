@@ -54,6 +54,13 @@ body{padding-top:50px; font-family:Georgia, serif}
 .text-blue-dark   {color:#51839A}
 .text-blue-darker {color:#326781}
 
+.bg-blue-darker a,
+.bg-blue-darker a:visited {color:#DEECF3}
+
+.bg-blue-darker a:hover,
+.bg-blue-darker a:active,
+.bg-blue-darker a.active  {color:#FFF}
+
 .bg-blue-lighter .page-header{border-color:#AFCDDC}
 
 .btn-blue{background-color:#51839A; border-color:#51839A; color:#DEECF3; text-shadow:none !important}
@@ -79,8 +86,13 @@ body{padding-top:50px; font-family:Georgia, serif}
 .nav.navbar-nav .glyphicons,
 .nav.navbar-nav .icon{vertical-align:text-top;}
 
-.white-bg{background-color:#fff}
-.padding-xl{padding-top:10em; padding-bottom:10em; border-bottom:1px solid #AFCDDC; border-top:1px solid #7DA7BC}
+.big-marketing-block{text-align:center; background-color:#fff; border-bottom:1px solid #AFCDDC; border-top:1px solid #7DA7BC; padding-bottom:10em; padding-top:10em}
+
+.padding-xs{padding-top: 2em; padding-bottom: 2em}
+.padding-sm{padding-top: 4em; padding-bottom: 4em}
+.padding-md{padding-top: 6em; padding-bottom: 6em}
+.padding-lg{padding-top: 8em; padding-bottom: 8em}
+.padding-xl{padding-top:10em; padding-bottom:10em}
 
 .cd-top {
   display: inline-block;
