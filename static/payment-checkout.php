@@ -9,9 +9,9 @@
 <input type="hidden" name="os0" value="<?php print uniqid(); ?>" class="paypal-on1" maxlength="200">
 
 <input type="hidden" name="on1" value="File Path">
-<input type="hidden" name="os1" value="files/uploaded/img" class="paypal-os1" maxlength="200">
+<input type="hidden" name="os1" value="" class="paypal-os1" maxlength="200">
 
-<input type="submit" name="submit" title="Checkout with PayPal." value="Buy Now!" class="btn btn-success btn-lg">
+<button type="submit" name="submit" title="Checkout with PayPal" class="btn btn-success btn-lg"><span class="glyphicons glyphicons-paypal"></span> Checkout</button>
 
 <p class="text-center"><em><small>*Billing and shipping information with be collected during PayPal checkout.</small></em></p>
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">

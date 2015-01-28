@@ -24,7 +24,7 @@
     </div>
 </div>
 
-<div class="container-fluid" id="portfolio">
+<div id="portfolio" class="container-fluid">
   <h1 class="page-header slab slab-lg">Portfolio: <small class="text-blue-dark">Charcoal Portraits</small></h1>
 
   <div class="row">
