@@ -63,7 +63,7 @@
       <img src="/img/fic-logo.png" alt="Forever In Charcoal - Fine Art Charcoal Portraits by Adrienne Mollette." style="max-width:800px; width:100%; height:auto">
     </h1>
 
-    <h2><em>- Fine Art Charcoal Portraits by Adrienne Mollette.</em></h2>
+    <h2><em>- Custom, Handmade, Fine Art, Charcoal Portraits of Children by Adrienne Mollette.</em></h2>
   </div>
 </div><!-- /jumbotron -->
 
@@ -261,45 +261,23 @@
 <script src="/js/ui.js"></script>
 <script src="/js/migrate.js"></script>
 <script src="/js/easing.js"></script>
+
 <script src="/js/bootstrap.js"></script>
 <script src="/js/chosen.js"></script>
+
 <script src="/lib/jquery-share/jquery.share.js"></script>
-<script src="/js/scrollReveal.js"></script>
-<script src="/js/switchable.js"></script>
-<script src="/js/knob.js"></script>
-<script src="/js/core.js"></script>
 
-<script>
-$(function(){
-  $('#share').share({
-    networks: ['twitter','facebook','googleplus','linkedin','stumbleupon'],
-    orientation: 'vertical',
-    urlToShare: 'http://foreverincharcoal.com',
-    affix: 'right center',
-    theme: 'square',
-  });
-
-	var offset = 100, offset_opacity = 300, scroll_top_duration = 500, $back_to_top = $('.cd-top');
-
-	$(window).scroll(function(){
-		($(this).scrollTop() > offset) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
-		if($(this).scrollTop() > offset_opacity){
-			$back_to_top.addClass('cd-fade-out');
-		}
-	});
-
-	//smooth scroll to top
-	$back_to_top.on('click', function(event){
-		event.preventDefault();
-		$('body,html').animate({scrollTop:0}, scroll_top_duration);
-	});
-});
-</script>
-
-<!-- jquery-upload -->
 <script src="/lib/jquery-upload/js/vendor/jquery.ui.widget.js"></script>
 <script src="/lib/jquery-upload/js/jquery.iframe-transport.js"></script>
 <script src="/lib/jquery-upload/js/jquery.fileupload.js"></script>
+
+<script src="/js/scrollReveal.js"></script>
+<script src="/js/switchable.js"></script>
+<script src="/js/knob.js"></script>
+
+<script src="/js/core.js"></script>
+
+<!-- jquery-upload -->
 <script>
 $(function () {
   $('#file').fileupload({
@@ -329,6 +307,34 @@ $(function () {
       });
     }
   });
+});
+</script>
+
+<!-- back to top -->
+<script>
+$(function(){
+  $('#share').share({
+    networks: ['twitter','facebook','googleplus','linkedin','stumbleupon'],
+    orientation: 'vertical',
+    urlToShare: 'http://foreverincharcoal.com',
+    affix: 'right center',
+    theme: 'square',
+  });
+
+	var offset = 100, offset_opacity = 300, scroll_top_duration = 500, $back_to_top = $('.cd-top');
+
+	$(window).scroll(function(){
+		($(this).scrollTop() > offset) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+		if($(this).scrollTop() > offset_opacity){
+			$back_to_top.addClass('cd-fade-out');
+		}
+	});
+
+	//smooth scroll to top
+	$back_to_top.on('click', function(event){
+		event.preventDefault();
+		$('body,html').animate({scrollTop:0}, scroll_top_duration);
+	});
 });
 </script>
 
