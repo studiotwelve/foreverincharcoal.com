@@ -180,30 +180,58 @@ $(function(){
   $("#submit").click(function(event){
     event.preventDefault().stopPropagation();
     
-    var $form   = $("#checkout"),
-        $order  = $("#order"),
-        $name   = $("#name"),
-        $phone  = $("#phone"),
-        $email  = $("#email"),
-        $photo  = $("#photo"),
-        $submit = $("#submit"),
-        estatus = false;
-    
+    //objects
+    var $form       = $("#checkout"),
+        $order      = $("#order"),
+        $name       = $("#name"),
+        $phone      = $("#phone"),
+        $email      = $("#email"),
+        $frame      = $("[name='os2']"),
+        $portfolio  = $("[name='os3']"),
+        $photo      = $("#photo"),
+        $comments   = $("#comments"),
+        $submit     = $("#submit"),
+        
+        $post = {
+          fid       : "checkout",
+          order     : $order.val(),
+          name      : $name.val(),
+          phone     : $phone.val(),
+          email     : $email.val(),
+          frame     : $frame.val(),
+          portfolio : $portfolio.val(),
+          photo     : $photo.val(),
+          comments  : $comments.val(),
+        },
+        
+        purl        = "http://foreverincharcoal.com/files/foreverincharcoal.com/post.php";
+          
     //check required fields
     $form.find("[required]").each(function(e){
-      estatus = checkRequired($(this));
+      $form.estatus = checkRequired($(this));
     });
     
     //check pattern fields
     $form.find("[pattern]").each(function(e){
-      estatus = checkPattern($(this));
+      $form.estatus = checkPattern($(this));
     });
     
-    if(estatus){
+    if($form.estatus){
       
       $form.submit();
     }
   });
+  
+  $("[required]").blur(function(e){
+    var $form = $(this).parent("form");
+    $form.estatus = checkRequired($(this));
+  });
+  
+  $("[pattern]").blur(function(e){
+    var $form = $(this).parent("form");
+    $form.estatus = checkPattern($(this));
+  });
+  
 });
 </script>
 
