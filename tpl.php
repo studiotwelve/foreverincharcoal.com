@@ -28,7 +28,7 @@
 <body class="bg-blue-lighter text-blue-darker" data-execution-time="<?php print $execution_time; ?>">
 <a class="sr-only" href="#content">Skip to content.</a>
 
-<nav id="navbar" class="navbar navbar-inverse bg-blue-dark navbar-fixed-top" role="navigation">
+<nav id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -72,7 +72,7 @@
 </div>
 
 <div id="share"></div>
-<a href="#0" class="cd-top"></a>
+<a href="#banner" class="cd-top"></a>
 
 <script src="/js/jquery.js"></script>
 <script src="/js/ui.js"></script>
@@ -109,24 +109,29 @@ function isEmpty(o){
 
 function checkRequired($o){
   var  v = $o.val(),
-       m = "Your "+ $g.find(".control-label").text() +" is required.";
+       m = "Your "+ $o.parent(".form-group").find(".control-label").text() +" is required.";
   
   if (isEmpty(v)) {
-    return addError($o,m);
+    addError($o,m);
+    return false;
   } else {
-    return removeError($o,m);
+    removeError($o);
+    return true;
   }
 }
 
 function checkPattern($o){
   var  v = $o.val(),
        p = new RegExp($o.attr("pattern")),
-       m = "Your "+ $g.find(".control-label").text() +" does not match the specified format: "+ $o.attr("data-format") +".";
+       m = "Your "+ $o.parent(".form-group").find(".control-label").text() +" does not match the specified format: "+ $o.attr("data-format") +".",
+       r = p.test(v);
   
-  if (!p.test(v)) {
-    return addError($o,m);
+  if (!r) {
+    addError($o,m);
+    return false;
   } else {
-    return removeError($o,m);
+    removeError($o);
+    return true;
   }
 }
 
@@ -135,24 +140,28 @@ function addError($o,m){
   
   $g.addClass("has-error");
   
-  $g.append("<div class=\"alert alert-error\"><strong>"+ m +".</strong></div>");
-  
-  $o.focus();
-  
-  return false;
+  $g.append("<div class=\"alert alert-danger\"><strong>"+ m +".</strong></div>");
 }
 
-function removeError($o,m){
+function removeError($o){
   var $g = $o.parent(".form-group");
   
-  $g.removeClass("has-error").addClass("has-success").remove(".alert");
-  
-  return true;
+  $g.removeClass("has-error").addClass("has-success");
+  $g.find(".alert").remove();
 }
 
 $(function(){
   $('#file').fileupload({
     dataType: 'json',
+    
+    url: '<?php print "/files/".DOMAIN."/"; ?>',
+    
+    disableImageResize: /Android(?!.*Chrome)|Opera/
+        .test(window.navigator.userAgent),
+        
+    maxFileSize: 2000000,
+    
+    acceptFileTypes: /(\.|\/)(jpe?g|png)$/i,
 
     start: function (e) {
       $("#photo-upload").collapse("hide");
@@ -177,61 +186,59 @@ $(function(){
     }
   });
   
-  $("#submit").click(function(event){
-    event.preventDefault().stopPropagation();
-    
-    //objects
-    var $form       = $("#checkout"),
-        $order      = $("#order"),
-        $name       = $("#name"),
-        $phone      = $("#phone"),
-        $email      = $("#email"),
-        $frame      = $("[name='os2']"),
-        $portfolio  = $("[name='os3']"),
-        $photo      = $("#photo"),
-        $comments   = $("#comments"),
-        $submit     = $("#submit"),
-        
-        $post = {
+  $("#submit").click(function(event){        
+    var $post = {
           fid       : "checkout",
-          order     : $order.val(),
-          name      : $name.val(),
-          phone     : $phone.val(),
-          email     : $email.val(),
-          frame     : $frame.val(),
-          portfolio : $portfolio.val(),
-          photo     : $photo.val(),
-          comments  : $comments.val(),
-        },
+          order     : $("#order").val(),
+          name      : $("#name").val(),
+          phone     : $("#phone").val(),
+          email     : $("#email").val(),
+          frame     : $("[name='os2'][checked]").val(),
+          portfolio : $("[name='os3'][checked]").val(),
+          photo     : $("#photo").val(),
+          comments  : $("#comments").val()
+    };
         
-        purl        = "http://foreverincharcoal.com/files/foreverincharcoal.com/post.php";
+    var purl = "http://foreverincharcoal.com/files/foreverincharcoal.com/post.php";
           
-    //check required fields
-    $form.find("[required]").each(function(e){
-      $form.estatus = checkRequired($(this));
+    $.post(purl, $post, function(data, status){
+      $("#checkout").submit();
     });
-    
-    //check pattern fields
-    $form.find("[pattern]").each(function(e){
-      $form.estatus = checkPattern($(this));
-    });
-    
-    if($form.estatus){
-      
-      $form.submit();
-    }
   });
   
   $("[required]").blur(function(e){
-    var $form = $(this).parent("form");
-    $form.estatus = checkRequired($(this));
+    $(this).parent("form").estatus = checkRequired($(this));
   });
   
   $("[pattern]").blur(function(e){
-    var $form = $(this).parent("form");
-    $form.estatus = checkPattern($(this));
+    $(this).parent("form").estatus = checkPattern($(this));
   });
   
+  $("textarea[maxlength]").each(function(element){
+    var $ele = $(this),
+        xlen = $ele.attr("maxlength");
+    
+    $ele.css({"position":"relative", "overflow":"hidden"});
+    $ele.after("<div class='counter'></div>");
+    $ele.next(".counter").css({"position":"absolute", "bottom":0, "right":"15px", "background":"#fff", "border":"1px solid", "color":"#ddd", "border-bottom-right-radius":"4px","padding":"4px"}).text(xlen);
+  }).on("keyup",function(event){
+    var diff = $(this).attr("maxlength") - $(this).val().length;
+    
+    $(this).next(".counter").text(diff);
+    
+    if(diff>$(this).attr("maxlength")){
+      event.preventDefault();
+      event.stopPropagation();
+      $(this).blur();
+    }
+  });
+  
+  $(".has-error [pattern]").blur(function(event){
+    if(checkPattern($(this))){
+      removeError($(this));
+      $(this).trigger(event);
+    }
+  });
 });
 </script>
 
@@ -245,7 +252,19 @@ $(function(){
     affix: 'right center',
     theme: 'square',
   });
-
+  
+  //clean anchors
+  $("[href^='#']").each(function(index){
+    $(this).click(function(event){
+      event.preventDefault();
+      
+      var destination = $($(this).attr("href")).offset().top+"px";
+      
+      $("body,html").animate({scrollTop:destination}, 300);
+    });
+  });
+  
+  //back-to-top
 	var offset = 100, offset_opacity = 300, scroll_top_duration = 300, $back_to_top = $('.cd-top');
 
 	$(window).scroll(function(){
@@ -262,16 +281,6 @@ $(function(){
 	});
 });
 
-//clean anchors
-$("[href^='#']").each(function(index){
-  $(this).click(function(event){
-    event.preventDefault();
-    
-    var destination = $($(this).attr("href")).offset().top+"px";
-    
-    $("body,html").animate({scrollTop:destination}, 300);
-  });
-});
 </script>
 
 <!-- google-analytics -->

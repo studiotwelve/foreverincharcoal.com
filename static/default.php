@@ -1,10 +1,12 @@
-<div id="banner" class="jumbotron text-center bg-blue-light">
+<div id="banner" class="giant-marketing-banner">
   <div class="container-fluid">
-    <h1 class="fancy fancy-lg">
-      <img src="/img/fic-logo.png" alt="Forever In Charcoal - Fine Art Charcoal Portraits by Adrienne Mollette." style="max-width:800px; width:100%; height:auto">
+    <h1 class="fancy">
+      <strong><a href="/" title="Home | Forever In Charcoal - Custom, Handmade, Fine Art, Charcoal Portraits of Children by Adrienne Mollette"><img src="/img/fic-logo-white.png" alt="Forever In Charcoal" style="max-width:480px; width:100%; height:auto"></a></strong>
     </h1>
 
     <h2><em>- Custom, Handmade, Fine Art, Charcoal Portraits of Children by Adrienne Mollette.</em></h2>
+    
+    <p class="anchor-padding"><a href="#ordering" class="btn btn-empty-white btn-lg">Ordering Info <span class="glyphicons glyphicons-down-arrow"></span></a></p>
   </div>
 </div><!-- /jumbotron -->
 
@@ -47,7 +49,7 @@
       <input name="on7"  value="Comments"   type="hidden">
 
       <input name="os0" id="order" value="<?php print uniqid(); ?>" type="hidden" required>
-      <input name="os1" id="photo" type="hidden" required><!-- /programmatic fields -->
+      <input name="os1" id="photo" type="hidden"><!-- /programmatic fields -->
 
       <div id="step1" class="col-lg-4">
         <div class="page-header">
@@ -58,17 +60,17 @@
 
         <div id="name-group" class="form-group">
           <label id="name-label" for="name" class="control-label">* Name:</label>
-          <input id="name" name="os4" type="text" placeholder="* John Doe" maxlength="200" class="form-control">
+          <input id="name" name="os4" type="text" placeholder="John Doe" maxlength="200" class="form-control" required>
         </div>
 
         <div id="phone-group" class="form-group">
-          <label id="phone-label" for="phone" class="control-label">Phone:</label>
-          <input id="phone" name="os5" type="text" placeholder="* 8285646536" maxlength="200" class="form-control">
+          <label id="phone-label" for="phone" class="control-label">* Phone:</label>
+          <input id="phone" name="os5" type="text" placeholder="8285555555" maxlength="200" class="form-control" required>
         </div>
 
         <div id="email-group" class="form-group">
-          <label id="email-label" for="email" class="control-label">Email:</label>
-          <input id="email" name="os6" type="text" placeholder="* you@example.com" maxlength="200" class="form-control" pattern="/.+@.+/">
+          <label id="email-label" for="email" class="control-label">* Email:</label>
+          <input id="email" name="os6" type="text" placeholder="you@example.com" maxlength="200" class="form-control" pattern="[^ @]*@[^ @]*" data-format="name@domain[.tld]">
         </div>
         <div class="alert alert-success">
           <p><strong>*Privacy Policy:</strong> Forever In Charcoal, will not share your information without your explicit consent.</p>
@@ -123,7 +125,7 @@
 
                   <span>Choose Photo...</span>
 
-                  <input id="file" name="files[]" type="file" data-url="/files/foreverincharcoal.com/" class="btn-file">
+                  <input id="file" name="files[]" type="file" class="btn-file">
                 </span><br><br>
                 
                 <div class="alert alert-warning"><strong>*Allowed file types:</strong> jpg, jpeg, png</div>
@@ -138,7 +140,7 @@
             <hr>
             
             <h4>Additional Comments?</h4>            
-            <textarea id="comments" name="os7" class="form-control" placeholder="Anything to add?" rows="3"></textarea>
+            <textarea id="comments" name="os7" class="form-control" placeholder="Anything to add?" rows="3" maxlength="200"></textarea>
           </div><!-- /col-photo-upload-->
         </div><!-- /row-->
       </div><!-- /Step 2-->

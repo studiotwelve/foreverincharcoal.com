@@ -10,11 +10,28 @@ function post(){
 }
 
 function checkout_post(){
-  extract($_POST);
-  include(ROOT."/inc/mysql.inc");
+  include($_SERVER["DOCUMENT_ROOT"]."/inc/mysql.inc");
   
-  $schema = "CREATE TABLE IF NOT EXISTS orders (
-    uuid VARCHAR(255) UNIQUE KEY PRIMARY KEY,
+  unset($_POST["fid"]);
+  
+  $arr = array();
+  
+  foreach($_POST as $key => $val){
+    $arr[urldecode($key)] = $db->real_escape_string(urldecode($val));
+  }
+  
+  $keys = implode("`, `", array_keys($arr));
+  $vals = implode("','", $arr);
+  $query = "INSERT INTO orders (`$keys`) VALUES ('$vals')";
     
-  )";
+  if($db->real_query($query) === TRUE){
+    $ret = json_encode($arr);
+  } else {
+    $ret = json_encode(array("error" => $db->error, "query" => $query));
+  }
+  
+  $db->close();
+  return $ret;
 }
+
+print post();

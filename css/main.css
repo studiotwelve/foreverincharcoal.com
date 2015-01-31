@@ -1,5 +1,19 @@
 body{padding-top:50px; font-family:Georgia, serif}
 
+.giant-marketing-banner{color:#fff; background:#000 url("/img/bg-banner-top.png") no-repeat fixed center bottom; background-size:cover;
+padding-top:326px; padding-bottom:20px; text-align:center}
+
+.btn-empty-white,
+.btn-empty-white:hover,
+.btn-empty-white:active,
+.btn-empty-white:visited,
+.btn-empty-white.active{color:#fff; background:transparent none; border:3px solid #fff; border-radius:8px; font-size:1.5em; box-shadow:none; text-shadow:none}
+
+.btn-empty-white:hover{color:#fff; border-color:#fff; background-color:rgba(255,255,255,.15)}}
+
+.btn-empty-white:active,
+.btn-empty-white.active{background-color:rgba(255,255,255,.3)}
+
 .text-lg{font-size:1.6em}
 .text-lg .icon,.text-lg.icon,
 .text-lg .social,.text-lg.social,
