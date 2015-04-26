@@ -169,13 +169,17 @@
   <h1 class="page-header slab slab-lg">Portfolio: <small class="text-blue-dark">Charcoal Portraits</small></h1>
 
   <div class="row">
-    <div class="col-md-3"><img class="thumbnail img-responsive" src="/img/fic-lilu-1.png" alt="Forever In Charcoal - Fine Art Charcoal Drawings, by Adrienne Mollette"></div>
+    <div class="col-md-6"><img class="thumbnail img-responsive" src="/img/fic-lilu-1.png" alt="Forever In Charcoal - Fine Art Charcoal Drawings, by Adrienne Mollette"></div>
 
-    <div class="col-md-3"><img class="thumbnail img-responsive" src="/img/fic-lilu-2.png" alt="Forever In Charcoal - Fine Art Charcoal Drawings, by Adrienne Mollette"></div>
+    <div class="col-md-6"><img class="thumbnail img-responsive" src="/img/fic-lilu-2.png" alt="Forever In Charcoal - Fine Art Charcoal Drawings, by Adrienne Mollette"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-4"><img class="thumbnail img-responsive" src="/img/fic-lilu-3.png" alt="Forever In Charcoal - Fine Art Charcoal Drawings, by Adrienne Mollette"></div>
+    
+    <div class="col-md-4"><img class="thumbnail img-responsive" src="/img/fic-client-1.jpg" alt="Forever In Charcoal - Fine Art Charcoal Drawings, by Adrienne Mollette"></div>
 
-    <div class="col-md-3"><img class="thumbnail img-responsive" src="/img/fic-lilu-3.png" alt="Forever In Charcoal - Fine Art Charcoal Drawings, by Adrienne Mollette"></div>
-
-    <div class="col-md-3">
+    <div class="col-md-4">
       <a href="#ordering" title="Order your custom, handmade, fine art charcoal portrait by Adrienne Mollette Now!" class="thumbnail">
         <img src="/img/fic-add.png" class="img-responsive placeholder" alt="Order and you could see your charcoal portrait here...">
       </a>
